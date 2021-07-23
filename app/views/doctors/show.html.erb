@@ -1,0 +1,10 @@
+<h1>You have selected Dr.<%= @doctor.name %> </h1>
+
+<h3>See below for Dr.<%= @doctor.name %>'s appointment schedule: </h3>
+
+<ol>
+<% @doctor.appointments.each do |apmt| %>
+    <li>Patient: <%= link_to apmt.patient.name, patient_path(apmt.patient) %><br> 
+    Appointment Slot: <%= link_to apmt.appointment_datetime.strftime("%B %e, %Y at %H:%M") %><br></li><br>
+<% end %>
+</ol>
